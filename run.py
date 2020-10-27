@@ -11,8 +11,10 @@ user = test_d.login_data[0]["username"]
 password = test_d.login_data[1]["password"]
 s_key = test_d.s_key["s_key"]
 result = base_search.seach_key(driver=driver,url=url,username=user,password=password,s_key=s_key)
-if s_key in result:
-    print("搜索结果是正确的")
+if result != 0:
+    if s_key in result:
+        print("搜索结果是正确的")
+    else:
+        print("用例测试不通过")
 else:
-    print("用例测试不通过")
-
+    print("搜索结果为空")
